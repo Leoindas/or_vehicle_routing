@@ -7,6 +7,10 @@ die entstehenden Touren auf einer interaktiven Karte.
 Entstanden als Projekt im Modul **Operations Research** – hier zu einer
 eigenständigen, vorzeigbaren Anwendung ausgebaut.
 
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://orvehiclerouting-nnlrlkmvubupqgw9tahwgf.streamlit.app/)
+
+**▶️ [Live-Demo direkt im Browser ausprobieren](https://orvehiclerouting-nnlrlkmvubupqgw9tahwgf.streamlit.app/)** – keine Installation nötig.
+
 ![Screenshot der App](docs/screenshot.png)
 
 *Beispiel: 99 Adressen im Raum Oberhausen, aufgeteilt auf 4 Fahrzeuge –

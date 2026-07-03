@@ -45,6 +45,31 @@ st.caption(
     "Touren auf einer Karte."
 )
 
+with st.expander("ℹ️  Über dieses Projekt & Herkunft der Daten"):
+    st.markdown(
+        """
+**Ausgangslage:** Gegeben war eine **Liste von Kundenadressen** (Straße, PLZ,
+Ort) eines Essen-auf-Rädern-Dienstes. Bis zu den fertig optimierten Touren
+waren mehrere Schritte nötig:
+
+1. **Geokodierung** – jede Adresse wird über die **Google Geocoding API** in
+   Koordinaten (Breiten-/Längengrad) umgewandelt.
+2. **Reisedaten via OSRM** – ein selbst unter **Linux** aufgesetzter
+   **OSRM-Routing-Server** (auf Basis der OpenStreetMap-Deutschlandkarte)
+   liefert für **jedes Adresspaar** die reale **Strecke (in Metern)** und die
+   **Fahrzeit (in Sekunden)**.
+3. **Distanz- & Zeitmatrix** – aus diesen Paar-Abfragen entstehen die beiden
+   n×n-Matrizen, die hier als Eingabe dienen (vorberechnet in den
+   Beispieldatensätzen).
+4. **Optimierung** – diese App löst damit das **Vehicle-Routing-Problem** mit
+   Google **OR-Tools** (Savings-Heuristik + Guided Local Search) und
+   visualisiert die Touren auf der Karte.
+
+Code & ausführliche Dokumentation:
+[github.com/Leoindas/or_vehicle_routing](https://github.com/Leoindas/or_vehicle_routing)
+        """
+    )
+
 # --------------------------------------------------------------------------- #
 # Sidebar: Datenquelle & Parameter
 # --------------------------------------------------------------------------- #
