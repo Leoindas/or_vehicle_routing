@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# OSM-Rohdaten (mehrere GB – gehören nicht ins Repo)
+*.osm.pbf
+*.osrm*
+
+# Generierte Karten / Exporte
+*.html
+routen.csv
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
