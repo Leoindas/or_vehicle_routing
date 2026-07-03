@@ -9,8 +9,8 @@ eigenständigen, vorzeigbaren Anwendung ausgebaut.
 
 ![Screenshot der App](docs/screenshot.png)
 
-> _Screenshot-Platzhalter: Einmal `streamlit run app.py` starten, optimieren und
-> einen Screenshot als `docs/screenshot.png` ablegen._
+*Beispiel: 99 Adressen im Raum Oberhausen, aufgeteilt auf 4 Fahrzeuge –
+optimiert nach Fahrzeit.*
 
 ---
 
