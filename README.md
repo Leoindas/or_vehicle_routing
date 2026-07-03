@@ -14,6 +14,30 @@ optimiert nach Fahrzeit.*
 
 ---
 
+## Ausgangslage & Vorgehen
+
+Gegeben war eine **Liste von Kundenadressen** (Straße, PLZ, Ort) des
+Lieferdienstes. Von dort bis zu den fertig optimierten Touren waren mehrere
+Schritte nötig – der Aufbau des Projekts:
+
+1. **Geokodierung** – Ein Skript fragt die **Google Geocoding API** ab und
+   wandelt jede Adresse in Koordinaten (Breiten-/Längengrad) um.
+   → [`scripts/geocode_google.py`](scripts/geocode_google.py)
+2. **Reisedaten via OSRM** – Ein selbst unter **Linux** aufgesetzter
+   **OSRM-Routing-Server** (auf Basis der OpenStreetMap-Deutschlandkarte)
+   liefert für **jedes Adresspaar** die reale **Strecke in Metern** und die
+   **Fahrzeit in Sekunden**.
+3. **Distanz- & Zeitmatrix** – Aus diesen Paar-Abfragen entstehen die beiden
+   n×n-Matrizen, die als Eingabe für die Optimierung dienen.
+   → [`scripts/build_matrix_osrm.py`](scripts/build_matrix_osrm.py)
+4. **Optimierung & Visualisierung** – Diese Web-App löst damit das
+   Vehicle-Routing-Problem (OR-Tools) und stellt die Touren auf einer Karte dar.
+
+Die Details zu jedem Schritt stehen weiter unten unter
+[**Datenpipeline**](#datenpipeline--woher-die-zeit--und-distanzmatrizen-kommen).
+
+---
+
 ## Was es macht
 
 - Löst ein **Vehicle-Routing-Problem (VRP)** mit Google **OR-Tools**

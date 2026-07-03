@@ -77,17 +77,21 @@ def build_map(routes: list[Route], osrm_url: str | None = None) -> folium.Map:
 
 def _add_legend(fmap: folium.Map, routes: list[Route]) -> None:
     rows = "".join(
-        f'<div style="margin:2px 0;">'
+        f'<div style="margin:3px 0;display:flex;align-items:center;color:#222;">'
         f'<span style="background:{ROUTE_COLORS[i % len(ROUTE_COLORS)]};'
-        f'width:12px;height:12px;display:inline-block;margin-right:6px;'
-        f'border-radius:2px;"></span>Route {r.vehicle}</div>'
+        f'width:14px;height:14px;display:inline-block;margin-right:8px;'
+        f'border-radius:3px;border:1px solid rgba(0,0,0,.25);"></span>'
+        f'Route {r.vehicle} · {r.num_addresses} Adr.</div>'
         for i, r in enumerate(routes)
     )
     html = (
         '<div style="position:fixed;bottom:24px;left:24px;z-index:9999;'
-        'background:white;padding:10px 14px;border:1px solid #ccc;'
-        'border-radius:6px;font-size:13px;box-shadow:0 1px 4px rgba(0,0,0,.2);">'
-        '<b>Routen</b>' + rows + "</div>"
+        'background:#ffffff;padding:10px 14px;border:1px solid #999;'
+        'border-radius:6px;font-size:13px;line-height:1.3;'
+        'color:#222;font-family:Arial,Helvetica,sans-serif;'
+        'box-shadow:0 1px 6px rgba(0,0,0,.35);">'
+        '<div style="font-weight:700;color:#111;margin-bottom:4px;">Routen</div>'
+        + rows + "</div>"
     )
     fmap.get_root().html.add_child(folium.Element(html))
 
